@@ -1,0 +1,9 @@
+services:
+  - docker
+
+script:
+  - docker build .
+  - docker run --rm --interactive --tty $DOCKER_USERNAME/dev /bin/sh -c "composer create-project symfony/skeleton --ignore-platform-reqs"
+
+notifications:
+  email: false
